@@ -6,6 +6,8 @@ import Footer from './components/Global/Footer/Footer';
 import Header from './components/Global/Header/Header';
 import Home from './components/Pages/Home/Home';
 import Login from './components/Pages/Auth/Login'
+import Notfound from './components/Pages/NotFound/Notfound';
+import Dashboard from './components/Pages/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
       <Header></Header>
       <Routes>
         {/* Public Routes  */}
+        <Route path='*' element={<Notfound></Notfound>} />
         <Route path='/' element={<Home></Home>} />
         <Route path='/home' element={<Home></Home>} />
         <Route path='/blogs' element={<Home></Home>} />
@@ -23,7 +26,10 @@ function App() {
 
         {/* Private Routes  */}
 
+        <Route path='/Dashboard' element={<Dashboard></Dashboard> } />
 
+
+        
       </Routes>
 
       <Footer></Footer>

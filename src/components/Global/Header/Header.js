@@ -36,6 +36,7 @@ const Header = () => {
 
 
                         } */}
+                        <Customlink to={'/login'} className='btn btn-outline-light'> Login</Customlink>
 
 
                     </Nav>
