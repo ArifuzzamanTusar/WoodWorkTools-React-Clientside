@@ -20,8 +20,9 @@ import AddProduct from './components/Pages/Dashboard/AddProduct';
 import ManageProducts from './components/Pages/Dashboard/ManageProducts';
 import Blog from './components/Pages/Publicpages/Blog';
 import Myportfolio from './components/Pages/Publicpages/Myportfolio';
-import Products from './components/Pages/Home/Products';
+
 import About from './components/Pages/Publicpages/About';
+import Products from './components/Pages/Publicpages/Products';
 
 function App() {
   return (

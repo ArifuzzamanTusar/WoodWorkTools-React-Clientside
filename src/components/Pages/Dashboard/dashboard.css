@@ -1,0 +1,18 @@
+.dashboard-skeleton{
+    display: grid;
+    grid-template-columns: 300px auto;
+
+}
+
+.sidebar{
+    background: rgb(248, 248, 248);
+    box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.295);
+    min-height: 60vh;
+}
+
+                
+.avater-box .avater-image {
+    margin-top: 30px;
+    border-radius: 100px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.308);
+}

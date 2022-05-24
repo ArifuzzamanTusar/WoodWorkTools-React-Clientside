@@ -18,7 +18,7 @@ const Header = () => {
         <Navbar  collapseOnSelect expand="lg" className='primary-bg' sticky="top" >
             <Container className=''>
                 <Navbar.Brand >
-                    <Customlink to={'/'}> <img width={150} src='https://res.cloudinary.com/tusar/image/upload/v1651940469/gpu-point/gpu-point_zciihy.webp' alt="" /> </Customlink>
+                    <Customlink to={'/'}> WOOD WORK TOOLS </Customlink>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
