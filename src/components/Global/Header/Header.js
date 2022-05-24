@@ -1,8 +1,19 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 import Customlink from '../../../Utilities/Customlink';
+import { FaPowerOff } from "react-icons/fa";
 
 const Header = () => {
+    const [user, loading] = useAuthState(auth);
+    const username = user?.displayName;
+
+    const handleSignOut = () => {
+        signOut(auth);
+        localStorage.removeItem('accessToken');
+    }
     return (
         <Navbar  collapseOnSelect expand="lg" className='primary-bg' sticky="top" >
             <Container className=''>
@@ -13,30 +24,38 @@ const Header = () => {
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">
                         <Customlink to={'/'}>Home</Customlink>
+                        <Customlink to={'/products'}>Products</Customlink>
                         <Customlink to={'/about'}>About</Customlink>
+                        <Customlink to={'/portfolio'}>My Portfolio</Customlink>
                         <Customlink to={'/blog'}>Blog</Customlink>
+
+                        {
+                            user ?
+                                <Customlink to={'/dashboard'}>Dashboard</Customlink>
+                                :
+                                <></>
+                        }
 
 
                     </Nav>
                     <Nav>
-                        {/* {
+                        {
                             user ?
                                 <NavDropdown title={username ? "Welcome! " + username : "Welcome!"} id="collasible-nav-dropdown">
 
-                                    <NavDropdown.Item > <Customlink to={'/manage-inventories'}>Manage Inventories</Customlink> </NavDropdown.Item>
-                                    <NavDropdown.Item > <Customlink to={'/add-products'}>Add Products</Customlink> </NavDropdown.Item>
-                                    <NavDropdown.Item > <Customlink to={'/my-products'}>My Products</Customlink> </NavDropdown.Item>
+                                    <NavDropdown.Item > <Customlink to={'/dashboard'}>Dashboard</Customlink> </NavDropdown.Item>
+                                    <NavDropdown.Item > <Customlink to={'/my-orders'}>My Orders</Customlink> </NavDropdown.Item>
                                     <NavDropdown.Divider />
 
                                     <div onClick={() => handleSignOut()} className="btn text-center text-white dropdown-item "><FaPowerOff /> Log Out</div>
                                 </NavDropdown>
 
                                 :
-                                <Link to={'/login'} className='btn btn-outline-light'> Get Started Now</Link>
+                                <Customlink to={'/login'} className='btn btn-outline-light'> Login</Customlink>
 
 
-                        } */}
-                        <Customlink to={'/login'} className='btn btn-outline-light'> Login</Customlink>
+                        }
+                        
 
 
                     </Nav>
