@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Button, Container, Form, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import fetchApi from '../../../interceptor';
@@ -40,7 +40,7 @@ const AddProduct = () => {
     }
 
     return (
-        <Container>
+        <div>
             <DashboardTitle title='Add Product' subtitle='add a new product' ></DashboardTitle>
             <div className=" mb-5 form-area col-md-6  p-5 shadow rounded">
                 <Form onSubmit={handleSubmit(onSubmit)}>
@@ -82,46 +82,81 @@ const AddProduct = () => {
                             {errors.description?.type === 'required' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
                         </label>
                     </Form.Group>
-                    {/* =========== Product PRICE ================= */}
-                    <Form.Group className="mb-1" controlId="formGroupEmail">
-                        <Form.Label>Product Price</Form.Label>
-                        <Form.Control
-                            {...register("price", {
-                                required: {
-                                    value: true,
-                                    message: 'Price is Required'
-                                },
-                            }
-                            )}
-                            type="number"
-                            placeholder="Product Price"
-                            min={1} />
-                        {/* validation  */}
-                        <label className="label">
-                            {errors.price?.type === 'required' && <span className="label-text-alt text-red-500">{errors.price.message}</span>}
-                        </label>
-                    </Form.Group>
-                    {/* =========== Product Minimum Order Quantity ================= */}
-                    <Form.Group className="mb-1" controlId="formGroupEmail">
-                        <Form.Label>Minimum Order Quantity</Form.Label>
-                        <Form.Control
-                            {...register("minimumOrder", {
-                                required: {
-                                    value: true,
-                                    message: 'minimumOrder is Required'
-                                },
-                            }
-                            )}
-                            type="number"
-                            placeholder=" minimum Order quantity"
-                            min={50} />
-                        {/* validation  */}
-                        <label className="label">
-                            {errors.minimumOrder?.type === 'required' && <span className="label-text-alt text-red-500">{errors.minimumOrder.message}</span>}
-                        </label>
+                    <Row>
+                        <Col md={4} col-sm={6}>
+                            {/* =========== Product PRICE ================= */}
+                            <Form.Group className="mb-1" controlId="formGroupEmail">
+                                <Form.Label>Product Price</Form.Label>
+                                <Form.Control
+                                    {...register("price", {
+                                        required: {
+                                            value: true,
+                                            message: 'Price is Required'
+                                        },
+                                    }
+                                    )}
+                                    type="number"
+                                    placeholder="Product Price"
+                                    min={1} />
+                                {/* validation  */}
+                                <label className="label">
+                                    {errors.price?.type === 'required' && <span className="label-text-alt text-red-500">{errors.price.message}</span>}
+                                </label>
+                            </Form.Group>
+
+                        </Col>
+
+                        <Col md={4} col-sm={6}>
+                            {/* =========== Product Minimum Order Quantity ================= */}
+                            <Form.Group className="mb-1" controlId="formGroupEmail">
+                                <Form.Label>Min Order Quantity</Form.Label>
+                                <Form.Control
+                                    {...register("minimumOrder", {
+                                        required: {
+                                            value: true,
+                                            message: 'minimumOrder is Required'
+                                        },
+                                    }
+                                    )}
+                                    type="number"
+                                    placeholder="Order quantity"
+                                    min={50} />
+                                {/* validation  */}
+                                <label className="label">
+                                    {errors.minimumOrder?.type === 'required' && <span className="label-text-alt text-red-500">{errors.minimumOrder.message}</span>}
+                                </label>
 
 
-                    </Form.Group>
+                            </Form.Group>
+                        </Col>
+                        <Col md={4} col-sm={6}>
+                            {/* =========== Quantity ================= */}
+                            <Form.Group className="mb-1" controlId="formGroupEmail">
+                                <Form.Label>Quantity</Form.Label>
+                                <Form.Control
+                                    {...register("quantity", {
+                                        required: {
+                                            value: true,
+                                            message: 'quantity is Required'
+                                        },
+                                    }
+                                    )}
+                                    type="number"
+                                    placeholder="Product quantity"
+                                    min={1000} />
+                                {/* validation  */}
+                                <label className="label">
+                                    {errors.minimumOrder?.type === 'required' && <span className="label-text-alt text-red-500">{errors.minimumOrder.message}</span>}
+                                </label>
+
+
+                            </Form.Group>
+                        </Col>
+                    </Row>
+
+
+
+
                     {/* =========== Product Image ================= */}
                     <Form.Group className="mb-1" controlId="formGroupEmail">
                         <Form.Label>Product Image</Form.Label>
@@ -135,7 +170,7 @@ const AddProduct = () => {
                             }
                             )}
                             type="file"
-                            placeholder="Image" />
+                            placeholder="Image" required />
                         {/* validation  */}
                         <label className="label">
                             {errors.image?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
@@ -154,7 +189,7 @@ const AddProduct = () => {
                 </Form>
 
             </div>
-        </Container>
+        </div>
     );
 };
 

@@ -2,6 +2,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import 'react-toastify/dist/ReactToastify.css';
 import Footer from './components/Global/Footer/Footer';
 import Header from './components/Global/Header/Header';
 import Home from './components/Pages/Home/Home';
