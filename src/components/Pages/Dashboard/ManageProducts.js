@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button,  Form, Table } from 'react-bootstrap';
+import { Button, Form, Table } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 import fetchApi from '../../../interceptor';
 import Loading from '../../Templates/Loading';
@@ -43,7 +43,7 @@ const ManageProducts = () => {
         if (data.deletedCount) {
             toast.success('product deleted successfully ');
             refetch();
-            
+
         }
 
     }
@@ -74,7 +74,7 @@ const ManageProducts = () => {
                             products.data?.map((product, index) => <tr key={index}>
                                 <td>
                                     <div className="product-crud-image">
-                                            <img width={50} src={product.image} alt="" />                                      
+                                        <img width={50} src={product.image} alt="" />
                                     </div>
                                 </td>
                                 <td className='text-center'>{product.name}</td>
@@ -94,7 +94,7 @@ const ManageProducts = () => {
                     </tbody>
 
                 </Table >
-           
+
             </div>
 
         </div>

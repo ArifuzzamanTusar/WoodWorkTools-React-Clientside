@@ -6,7 +6,7 @@ import fetchApi from '../../../interceptor';
 import Loading from '../../Templates/Loading';
 import DashboardTitle from './DashboardTitle';
 
-import { BsTrash } from "react-icons/bs";
+import { BsTrash, BsPersonCheckFill } from "react-icons/bs";
 import { toast } from 'react-toastify';
 
 const ManageUsers = () => {
@@ -97,8 +97,8 @@ const ManageUsers = () => {
                             <th >
                                 {
                                     user?.role !== 'admin' ? <>
-                                        <Button onClick={() => handleUserDeleteConfirm(user)} className='btn  btn-danger'> <BsTrash /> Delete</Button>
-                                        <Button onClick={() => handleUserToAdminConfirm(user)} className='btn  btn-danger'> <BsTrash /> Make Admin</Button>
+                                        <Button onClick={() => handleUserDeleteConfirm(user)} className='btn  btn-danger mx-1'> <BsTrash /> Delete</Button>
+                                        <Button onClick={() => handleUserToAdminConfirm(user)} className='btn  btn-danger mx-1'> <BsPersonCheckFill /> Make Admin</Button>
                                         {/* <label htmlFor='make-admin-modal' onClick={() => setMakeAdmin(user)} className='btn btn-success btn-sm mr-2'>make admin</label> */}
                                         {/* <label onClick={() => setDeleteUser(user)} htmlFor='delete-user-modal' className='btn btn-error btn-sm '>delete user</label> */}
                                     </>
