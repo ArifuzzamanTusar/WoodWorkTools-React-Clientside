@@ -44,7 +44,7 @@ const Header = () => {
                                 <NavDropdown title={username ? "Welcome! " + username : "Welcome!"} id="collasible-nav-dropdown">
 
                                     <NavDropdown.Item > <Customlink to={'/dashboard'}>Dashboard</Customlink> </NavDropdown.Item>
-                                    <NavDropdown.Item > <Customlink to={'/my-orders'}>My Orders</Customlink> </NavDropdown.Item>
+                                    <NavDropdown.Item > <Customlink to={'/dashboard/my-orders'}>My Orders</Customlink> </NavDropdown.Item>
                                     <NavDropdown.Divider />
 
                                     <div onClick={() => handleSignOut()} className="btn text-center text-white dropdown-item "><FaPowerOff /> Log Out</div>

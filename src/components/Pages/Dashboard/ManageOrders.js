@@ -121,20 +121,20 @@ const ManageOrders = () => {
                                 <td className='text-center'>{order.phone}</td>
                                 <td className='text-center'>{order.quantity}</td>
                                 <td className='text-center'>${order.totalPrice}</td>
-                                <td className='text-center capitalize font-bold'>
+                                <td className='text-center'>
                                     {
                                         order.status === 'due' ? "unpaid" : order.status
                                     }
 
                                 </td>
-                                <th className='text-center font-bold'>
+                                <th className='text-center text-bold'>
                                     {
                                         order.status === 'due' && <>
-                                            <label onClick={() => handleCancelConfirm(order)} htmlFor="order-cancel-modal" className="btn btn-danger text-white">cancel</label>
+                                            <label onClick={() => handleCancelConfirm(order)}  className="btn btn-danger text-white">cancel</label>
                                         </>
                                     }
                                     {
-                                        order.status === 'pending' && <label onClick={() => handleConfirmConfirm(order._id)} htmlFor="order-cancel-modal" className="btn btn-success btn-xs text-white">accept payment</label>
+                                        order.status === 'pending' && <label onClick={() => handleConfirmConfirm(order._id)} className="btn btn-success  text-white">accept payment</label>
                                     }
                                     {
                                         order.status === 'paid' && "Shipped"
