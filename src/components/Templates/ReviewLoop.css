@@ -1,0 +1,33 @@
+.swiper-slide img{
+    width: inherit;
+    height: inherit;
+}
+.review_widget{
+    position: relative;
+    transition: 0.5s;
+    border-radius: 8px;
+    border: 1px solid #00000046;
+    background: #ffffff;
+}
+.quote_icon{
+    width: 60px ;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    opacity: 0.1;
+}
+
+.review_widget_inner{
+    padding: 15px;
+}
+.review_widget_inner .avater{
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 100px;
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.3);
+    margin-right: 20px;
+}
+.review_widget .review-text{
+    font-style: italic;
+}

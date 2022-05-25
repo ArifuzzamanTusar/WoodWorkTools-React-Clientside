@@ -1,0 +1,21 @@
+
+.swiper-pagination{
+    padding-top: 30px;
+    bottom: 0 !important;
+  }
+  .swiper-wrapper{
+    padding: 30px 0px !important;
+  }
+  
+  .swiper-slide {
+    width: 350px;
+    cursor: grab;
+  }
+  .swiper-pagination{
+    padding-top: 30px;
+    bottom: 0 !important;
+  }
+  .swiper-wrapper{
+    padding: 30px 0px !important;
+  }
+  
