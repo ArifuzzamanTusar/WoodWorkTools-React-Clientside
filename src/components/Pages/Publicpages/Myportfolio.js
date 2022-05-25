@@ -1,9 +1,12 @@
 import React from 'react';
+import PageHeader from '../../Global/Pagecomponents/PageHeader';
 
 const Myportfolio = () => {
     return (
         <div>
-            My Portfolio
+          
+             <PageHeader title="My Portfolio" subtitle="All wood work tools"></PageHeader>
+        
         </div>
     );
 };

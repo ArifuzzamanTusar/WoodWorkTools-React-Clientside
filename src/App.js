@@ -25,6 +25,7 @@ import Myportfolio from './components/Pages/Publicpages/Myportfolio';
 import About from './components/Pages/Publicpages/About';
 import Products from './components/Pages/Publicpages/Products';
 import { ToastContainer } from 'react-toastify';
+import Purchase from './components/Pages/Purchase/Purchase';
 
 function App() {
   return (
@@ -45,6 +46,8 @@ function App() {
         {/* Private Routes  */}
         <Route element={<RequireAuth />}>
           <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/purchase/:id' element={<Purchase />} />
+          
 
           {/* nested routes */}
           <Route path='/dashboard' element={<Dashboard />}>

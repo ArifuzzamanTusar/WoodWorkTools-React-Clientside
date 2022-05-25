@@ -1,9 +1,10 @@
 import React from 'react';
+import PageHeader from '../../Global/Pagecomponents/PageHeader';
 
 const About = () => {
     return (
         <div>
-            About
+               <PageHeader title="About" subtitle="All wood work tools"></PageHeader>
         </div>
     );
 };
