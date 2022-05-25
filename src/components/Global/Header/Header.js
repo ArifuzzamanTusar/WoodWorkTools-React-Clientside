@@ -31,7 +31,7 @@ const Header = () => {
 
                         {
                             user ?
-                                <Customlink to={'/dashboard'}>Dashboard</Customlink>
+                                <Customlink to={'/dashboard/my-profile'}>Dashboard</Customlink>
                                 :
                                 <></>
                         }
@@ -43,7 +43,7 @@ const Header = () => {
                             user ?
                                 <NavDropdown title={username ? "Welcome! " + username : "Welcome!"} id="collasible-nav-dropdown">
 
-                                    <NavDropdown.Item > <Customlink to={'/dashboard'}>Dashboard</Customlink> </NavDropdown.Item>
+                                    <NavDropdown.Item > <Customlink to={'/dashboard/my-profile'}>Dashboard</Customlink> </NavDropdown.Item>
                                     <NavDropdown.Item > <Customlink to={'/dashboard/my-orders'}>My Orders</Customlink> </NavDropdown.Item>
                                     <NavDropdown.Divider />
 

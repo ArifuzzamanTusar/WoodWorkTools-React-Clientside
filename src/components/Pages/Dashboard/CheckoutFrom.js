@@ -99,7 +99,7 @@ const CheckoutFrom = ({ order }) => {
             {
                 cardSuccess && <div className="my-2 text-green-500">
                     <p>Success: {cardSuccess}</p>
-                    <p>Your transaction ID: <span className="text-orange-500">{transactionId}</span></p>
+                    <p>Your transaction ID: <span className="bg-success text-white p-2">{transactionId}</span></p>
 
                 </div>
             }
