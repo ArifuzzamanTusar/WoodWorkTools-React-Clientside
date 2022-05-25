@@ -4,6 +4,7 @@ import { Button, Container, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import fetchApi from '../../../interceptor';
+import DashboardTitle from './DashboardTitle';
 
 const AddProduct = () => {
     const { register, formState: { errors }, handleSubmit, reset } = useForm();
@@ -40,10 +41,8 @@ const AddProduct = () => {
 
     return (
         <Container>
-            <div className="py-5 text-center">
-                <h2> Login </h2>
-            </div>
-            <div className=" mb-5 form-area col-md-4 mx-auto p-5 shadow rounded">
+            <DashboardTitle title='Add Product' subtitle='add a new product' ></DashboardTitle>
+            <div className=" mb-5 form-area col-md-6  p-5 shadow rounded">
                 <Form onSubmit={handleSubmit(onSubmit)}>
 
                     {/* =========== Product Name ================= */}
