@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
@@ -10,6 +10,8 @@ import DashboardTitle from './DashboardTitle';
 
 const MyProfile = () => {
     const [user, loading] = useAuthState(auth);
+    const [editMode, setEditmode] = useState(false);
+    console.log(editMode);
 
     const { data: profile, isLoading, refetch } = useQuery(['profile', user], async () => await fetchApi.get(`/user/${user?.email}`));
 
@@ -31,59 +33,97 @@ const MyProfile = () => {
 
             toast.success('profile updated successfully')
             refetch();
+            setEditmode(false);
         }
 
     }
     return (
         <div>
             <DashboardTitle title='My Profile' subtitle='Manage My profile' ></DashboardTitle>
-            <div className=" mb-5 form-area col-md-6  p-5 shadow rounded">
+            <div className=" mb-5 form-area col-md-6   ">
+                <Form.Group as={Row} className="my-3 p-3 shadow-sm rounded" controlId="formGroupEmail" >
+                    <Form.Label column sm="3">Name</Form.Label>
+                    <Col sm="9">
+                        <Form.Control type="text" defaultValue={profile?.data?.name} name='education' disabled />
+                    </Col>
+
+                </Form.Group>
+                <Form.Group as={Row} className="my-3 p-3 shadow-sm rounded" controlId="formGroupEmail" >
+                    <Form.Label column sm="3">Email</Form.Label>
+                    <Col sm="9">
+                        <Form.Control type="text" defaultValue={profile?.data?.email} name='education' disabled />
+                    </Col>
+
+                </Form.Group>
+
+                {/* ========= FORM ======= */}
                 <Form onSubmit={handleProfile}>
 
                     {/* =========== Education ================= */}
-                    <Form.Group as={Row} className="mb-1" controlId="formGroupEmail">
-                        <Form.Label column sm="2">Education</Form.Label>
-                        <Col sm="10">
-                            <Form.Control type="text" defaultValue={profile?.data?.education} />
+                    <Form.Group as={Row} className="my-3 p-3 shadow-sm rounded" controlId="formGroupEmail" >
+                        <Form.Label column sm="3">Education</Form.Label>
+                        <Col sm="9">
+                            <Form.Control type="text" defaultValue={profile?.data?.education} name='education' disabled={!editMode} />
                         </Col>
 
                     </Form.Group>
                     {/* =========== Address ================= */}
-                    <Form.Group as={Row} className="mb-1" controlId="formGroupPassword">
-                        <Form.Label column sm="2">Address</Form.Label>
-                        <Col sm="10">
-                            <Form.Control type="text" defaultValue={profile?.data?.location} />
+                    <Form.Group as={Row} className="my-3 p-3 shadow-sm rounded" controlId="formGroupPassword" >
+                        <Form.Label column sm="3">Address</Form.Label>
+                        <Col sm="9">
+                            <Form.Control type="text" defaultValue={profile?.data?.location} name='location' disabled={!editMode} />
                         </Col>
 
                     </Form.Group>
 
                     {/* =========== Phone Number ================= */}
-                    <Form.Group as={Row} className="mb-1" controlId="formGroupEmail">
-                        <Form.Label column sm="2">Phone Number</Form.Label>
-                        <Col sm="10">
-                            <Form.Control type="text" defaultValue={profile?.data?.phone} /></Col>
+                    <Form.Group as={Row} className="my-3 p-3 shadow-sm rounded" controlId="formGroupEmail">
+                        <Form.Label column sm="3">Phone Number</Form.Label>
+                        <Col sm="9">
+                            <Form.Control type="text" defaultValue={profile?.data?.phone} name='phone' disabled={!editMode} /></Col>
 
                     </Form.Group>
 
                     {/* =========== Linkedin link ================= */}
-                    <Form.Group as={Row} className="mb-1" controlId="formGroupEmail">
-                        <Form.Label column sm="2">LinkdIn Profile Link</Form.Label>
-                        <Col sm="10">
-                            <Form.Control type="url" defaultValue={profile?.data?.linkdin} />
-                            </Col>
+                    <Form.Group as={Row} className="my-3 p-3 shadow-sm rounded" controlId="formGroupEmail">
+                        <Form.Label column sm="3">LinkdIn Profile Link</Form.Label>
+                        <Col sm="9">
+                            <Form.Control type="url" defaultValue={profile?.data?.linkdin} name='linkdin' disabled={!editMode} />
+                        </Col>
 
 
 
                     </Form.Group>
 
+                    {
+                        editMode ?
+                            <Button className='primary-btn col-6' type="submit">
+                                Update Profile
+                            </Button>
+                            :
+                           <></>
 
-                    <Button className='primary-btn col-12' type="submit">
-                        Update Profile
-                    </Button>
+                    }
+
+
+
+
 
 
 
                 </Form>
+
+                {
+                    !editMode ?
+                        <Button onClick={() => setEditmode(true)} className='primary-btn col-6' >
+                            Edit Profile
+                        </Button>
+
+                        :
+                        <></>
+
+
+                }
 
             </div>
 
