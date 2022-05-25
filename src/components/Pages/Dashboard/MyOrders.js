@@ -15,7 +15,7 @@ const MyOrders = () => {
 
     const [user, loading] = useAuthState(auth);
 
-    const { data: orders, isLoading, refetch } = useQuery(['orders', user], async () => await fetchApi.get(`/order?email=${user?.email}`))
+    const { data: orders, isLoading, refetch } = useQuery(['orders', user], async () => await fetchApi.get(`/order?email=${user?.email}`));
 
     if (loading || isLoading) {
         return <Loading />
@@ -101,7 +101,7 @@ const MyOrders = () => {
                                         order.status === 'due' && <>
                                             <Link to={`/dashboard/payment/${order._id}`} className="btn btn-success btn-sm mx-2">Pay Now</Link>
 
-                                            <label onClick={() => handleCancelOrderConfirm(order)}  className="btn btn-sm btn-danger">Cancel</label>
+                                            <label onClick={() => handleCancelOrderConfirm(order)} className="btn btn-sm btn-danger">Cancel</label>
                                         </>
                                     }
                                     {

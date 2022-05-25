@@ -12,6 +12,7 @@ const ManageOrders = () => {
 
 
     const { data: orders, isLoading, refetch } = useQuery('orders', async () => await fetchApi.get('/order'));
+    
 
 
 
