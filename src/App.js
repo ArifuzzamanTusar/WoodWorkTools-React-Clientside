@@ -23,6 +23,7 @@ import Myportfolio from './components/Pages/Publicpages/Myportfolio';
 
 import About from './components/Pages/Publicpages/About';
 import Products from './components/Pages/Publicpages/Products';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
         <Route path='/portfolio' element={<Myportfolio></Myportfolio>} />
         <Route path='/products' element={<Products></Products>} />
         <Route path='/login' element={<Login></Login>} />
-        <Route path='/register' element={<Register></Register>} /> 
+        <Route path='/register' element={<Register></Register>} />
 
         {/* Private Routes  */}
         <Route element={<RequireAuth />}>
@@ -65,6 +66,19 @@ function App() {
 
 
       </Routes>
+
+      {/* Toast Container  */}
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
 
       <Footer></Footer>
     </div>
