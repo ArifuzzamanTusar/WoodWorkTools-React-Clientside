@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 import fetchApi from '../../../interceptor';
+import SectionHeading from '../../Global/Pagecomponents/SectionHeading';
 import Loading from '../../Templates/Loading';
 import Productloop from '../../Templates/Productloop';
 
@@ -13,6 +14,7 @@ const Products = () => {
     }
     return (
         <div>
+            <SectionHeading title='Popular Tools'></SectionHeading>
             <Container>
                 <Row>
                     {

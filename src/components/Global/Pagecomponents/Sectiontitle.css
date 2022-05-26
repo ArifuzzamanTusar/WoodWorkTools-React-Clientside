@@ -1,0 +1,6 @@
+.section-title .divider{
+    width: 150px;
+    height: 10px;
+    border-radius: 100px;
+    background: var(--primary);
+}

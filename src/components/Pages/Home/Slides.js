@@ -11,7 +11,7 @@ const Slides = (props) => {
                     <Col md={6}>
                         <div className=" slider-content d-flex align-items-center justify-content-center ">
                             <div className="slider-content-inner">
-                                <h2>{title}</h2>
+                                <h2 className='heading-title-text'>{title}</h2>
                                 <p>{subtitle}</p>
 
                                 <Link className='btn btn-outlined' to={link}>{btnText} </Link>
@@ -20,7 +20,7 @@ const Slides = (props) => {
                         </div>
                     </Col>
                     <Col md={6}>
-                        <Image src={img}></Image>
+                        <Image className='img-fluid' src={img}></Image>
                     </Col>
                 </Row>
             </Container>

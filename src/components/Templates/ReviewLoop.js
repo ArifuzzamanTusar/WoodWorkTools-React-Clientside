@@ -12,7 +12,7 @@ const ReviewLoop = ({ review }) => {
                     <div className="d-flex align-items-center">
                         <Image className='avater' src="https://api.lorem.space/image/face?hash=55350"></Image>
                         <div className="name_review">
-                            <h4 className='author'> {name}</h4>
+                            <h5 className='author fw-bold'> {name}</h5>
                             <div className="deg">Customer, WoodWork Tools</div>
                         </div>
 

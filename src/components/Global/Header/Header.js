@@ -6,6 +6,8 @@ import auth from '../../../firebase.init';
 import Customlink from '../../../Utilities/Customlink';
 import { FaPowerOff } from "react-icons/fa";
 
+import logo from '../../../assets/logo-white.png';
+
 const Header = () => {
     const [user, loading] = useAuthState(auth);
     const username = user?.displayName;
@@ -18,7 +20,7 @@ const Header = () => {
         <Navbar  collapseOnSelect expand="lg" className='primary-bg' sticky="top" >
             <Container className=''>
                 <Navbar.Brand >
-                    <Customlink to={'/'}> WOOD WORK TOOLS </Customlink>
+                    <Customlink to={'/'}> <img src={logo} alt="" width={150} /></Customlink>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">

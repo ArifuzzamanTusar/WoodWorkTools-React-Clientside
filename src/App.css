@@ -1,59 +1,90 @@
-:root{
+:root {
   --primary: #563232;
   --secondary: #e7cfb4;
 }
-.btn{
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.heading-title-text {
+  font-family: "Koulen", cursive;
+  font-size: 46px;
+}
+.btn {
   transition: 0.5s;
 }
-.btn:hover{
+.btn:hover {
   transform: scale(0.95);
 }
 
-.btn-primary{
+.btn-primary {
   background: var(--primary);
   border-radius: 5px;
   border: none;
 }
-.btn-primary:hover{
+.btn-primary:hover {
   background: rgb(77, 77, 77);
 }
 
-.btn-outlined{
+.btn-outlined {
   background: transparent;
   border: 1px solid var(--primary);
   border-radius: 5px;
   color: var(--primary);
-
 }
-.btn-outlined:hover{
+.btn-outlined:hover {
   background: rgb(77, 77, 77);
   color: white;
-  
 }
 
-.btn-outlined-white{
+.btn-outlined-white {
   border: 1px solid #ffffff;
   color: #ffffff;
 }
-.btn-outlined-white:hover{
+.btn-outlined-white:hover {
   border: 1px solid #ffffff;
   color: #000000;
   background: #ffffff;
 }
 /* -- backgrounds  */
-.primary-bg{
-  background: var(--primary) ;
+.primary-bg {
+  background: var(--primary);
   color: white;
 }
-.primary-bg .nav-link{
+.primary-bg .nav-link {
   color: white !important;
 }
-.navbar-nav .nav-link.active{
+.navbar-nav .nav-link.active {
   background: var(--secondary);
   border-radius: 5px;
 }
-.dropdown-menu{
+.dropdown-menu {
   background: var(--primary);
 }
 
 /* ===========  */
+
+/* Responstive-Global  */
+
+/* Large display 1200px and above */
+@media screen and (min-width: 1200px) {
+  /* write code here */
+}
+
+/* Portrait tablets 768px and above */
+@media screen and (min-width: 768px) and (max-width: 979px) {
+  /* write code here */
+}
+
+/* Phones to tablets 767px and below */
+@media screen and (max-width: 767px) {
+  /* write code here */
+  .heading-title-text{
+    font-size: 25px;
+  }
+}
+
+/* Phones 480px and below */
+@media screen and (max-width: 480px) {
+  /* write code here */
+}

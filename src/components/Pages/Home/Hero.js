@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pagination , Autoplay} from "swiper";
+import { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
@@ -7,6 +7,11 @@ import "swiper/css/pagination";
 
 import "./slider.css"
 import Slides from './Slides';
+
+// import slide images 
+import circulerSaw from '../../../assets/slider/circuler-saw.webp';
+import miterSaw from '../../../assets/slider/miter-saw.webp';
+import tableSaw from '../../../assets/slider/table-saw.webp';
 
 const Hero = () => {
     const pagination = {
@@ -20,54 +25,56 @@ const Hero = () => {
     const slide_content = [
         {
             _id: 1,
-            title: "Vivamus magna justo, lacinia eget consectet",
-            subtitle: "Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Curabitur aliquet quam id dui posuere Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.Praesent sapien massa, convallis a pellentesque nec, egestas non nisi.blandit.",
+            title: "Wood Work Tools's Miter Saw",
+            subtitle: "15 Amp 10 in. Sliding Compound Exclusive Miter Saw comes with 10 Inches Blade Length, 36.19 x 22.82 x 16.92	Item Dimensions, Ac/dc Speed	4600 RPM  Power Source",
             button: "button-text",
-            button_url: "#button-url",
-            image: "https://res.cloudinary.com/tusar/image/upload/v1606723004/sample.jpg"
+            button_url: "/products",
+            image: miterSaw
 
         },
         {
             _id: 2,
-            title: "Curabitur aliquet quam id dui posuere blandit.",
-            subtitle: "Donec rutrum congue leo eget malesuada. Curabitur aliquet quam idPraesent sapien massa, convallis a pellentesque nec, egestas non nisi.Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. dui posuere blandit.",
+            title: "Powerful Circular Saw",
+            subtitle: "Get the official Festool TS 75 EQ Plunge Cut Circular Saw with 75-Inch Track with 50 nummbers of sharp Teeths",
             button: "button-text",
-            button_url: "#button-url",
-            image: "https://res.cloudinary.com/tusar/image/upload/v1606723004/sample.jpg"
+            button_url: "/products",
+            image: circulerSaw
 
         },
         {
             _id: 3,
-            title: "Praesent sapien massa, convallis a pellentesq",
-            subtitle: "Quisque velit nisi, pretium ut lacinia in, elementum id enim. Vivamus magna justo, lacinia eget consectetur sed, convalliPraesent sapien massa, convallis a pellentesque nec, egestas non nisi.s at tellus.",
+            title: "Professional Table Saw",
+            subtitle: "SAWSTOP 10-Inch Professional Cabinet Saw 3-HP, 36-Inch Professional TGlide Fence System (PCS31230-TGP236)",
             button: "button-text",
-            button_url: "#button-url",
-            image: "https://res.cloudinary.com/tusar/image/upload/v1606723004/sample.jpg"
-
+            button_url: "/products",
+            image: tableSaw
         }
     ]
     return (
+        <div className="hero">
+            <>
+                <Swiper
+                    pagination={pagination}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                    modules={[Pagination, Autoplay]}
+                    className="mySwiper"
+                >
+                    {
+                        slide_content.map(slide =>
+                            <SwiperSlide key={slide._id}>
+                                <Slides title={slide.title} subtitle={slide.subtitle} link={slide.button_url} btnText={slide.button} img={slide.image}></Slides>
+                            </SwiperSlide>)
+                    }
 
-        <>
-            <Swiper
-                pagination={pagination}
-                autoplay={{
-                    delay: 2000,
-                    disableOnInteraction: false,
-                }}
-                modules={[Pagination, Autoplay]}
-                className="mySwiper"
-            >
-                {
-                    slide_content.map(slide =>  
-                    <SwiperSlide key={slide._id}> 
-                        <Slides title = {slide.title}   subtitle = {slide.title}  link = {slide.button_url}  btnText = {slide.button}  img = {slide.image}></Slides> 
-                    </SwiperSlide> )
-                }
-                
-                
-            </Swiper>
-        </>
+
+                </Swiper>
+            </>
+        </div>
+
+
 
     );
 };

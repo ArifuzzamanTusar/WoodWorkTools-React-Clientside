@@ -1,5 +1,11 @@
 
-
+.hero{
+  background-image: url('http://res.cloudinary.com/tusar/image/upload/b_rgb:ffffff,o_18/v1653531636/wood-work-tools/set-carpenter-s-tools-wooden_392895-3648_nwkxcx.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-bottom: 50px;
+}
 
 .swiper {
   width: 100%;
@@ -16,12 +22,7 @@
 
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+
 
 .swiper-pagination-bullet {
   width: 20px;

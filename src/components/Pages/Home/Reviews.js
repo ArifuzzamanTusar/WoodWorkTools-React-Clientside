@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from 'swiper';
 import "./Testimonial.css"
+import SectionHeading from '../../Global/Pagecomponents/SectionHeading';
 
 
 
@@ -20,6 +21,7 @@ const Reviews = () => {
     }
     return (
         <div>
+              <SectionHeading title='Testimonials' subtitle='what out clients say about out products and services'></SectionHeading>
             <Container>
                 <Swiper
                     slidesPerView={"auto"}
