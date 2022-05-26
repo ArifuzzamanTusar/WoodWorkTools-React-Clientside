@@ -1,6 +1,38 @@
+# Wood Work Tools
+### tools manufacturer Website
+- Live Link: https://woodwork-tools.web.app/
+
+
+## Some Features Of My APP
+
+* Private & nested route
+* Google Login
+* Firebase authentication
+* 404 Not Found Page
+* Email Password Registration
+* payment system
+* user management
+* product order management
+
+## Tools And Technologies 
+- axios": "^0.27.2",
+- bootstrap": "^5.1.3",
+- firebase": "^9.8.1",
+- react": "^18.1.0",
+- react-bootstrap": "^2.4.0",
+- react-firebase-hooks": "^5.0.3",
+- react-hook-form": "^7.31.2",
+- react-icons": "^4.3.1",
+- react-query": "^3.39.0",
+- react-router-dom": "^6.3.0",
+- react-scripts": "5.0.1",
+- react-toastify": "^9.0.1",
+- sweetalert": "^2.1.2",
+- swiper": "^8.1.5",
 
 
 This Repo: https://github.com/programming-hero-web-course1/manufacturer-website-client-side-ArifuzzamanTusar
+This ClientSide Repo:  https://github.com/programming-hero-web-course1/manufacturer-website-server-side-ArifuzzamanTusar
 This server: https://wwtools.herokuapp.com/
 References,
 - https://www.blacktailstudio.com/blog/essential-woodworking-tools
