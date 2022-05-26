@@ -5,8 +5,8 @@ import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
-import fetchApi from '../../../interceptor';
 import Loading from '../../Templates/Loading';
+import axios from 'axios';
 
 const Purchase = () => {
     const { id } = useParams();
@@ -16,7 +16,11 @@ const Purchase = () => {
 
     const [user, loading] = useAuthState(auth);
 
-    const { data: product, isLoading, refetch } = useQuery(['product', id], async () => await fetchApi.get(`/product/${id}`));
+    const { data: product, isLoading, refetch } = useQuery(['product', id], async () => await axios.get(`https://wwtools.herokuapp.com/product/${id}`, {
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        }
+    }));
 
     useEffect(() => {
         if (product) {
@@ -46,13 +50,21 @@ const Purchase = () => {
             status: 'due',
             image: product.data.image
         }
-        const { data } = await fetchApi.post('/order', order);
+        const { data } = await axios.post('https://wwtools.herokuapp.com/order', order, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            }
+        });
         if (data.insertedId) {
 
             const updateField = {
                 quantity: Number(product.data.quantity) - purchaseQuantity,
             }
-            const { data: response } = await fetchApi.put(`/product/${id}`, updateField)
+            const { data: response } = await axios.put(`https://wwtools.herokuapp.com/product/${id}`, updateField, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                }
+            })
             if (response) {
                 refetch();
                 toast.success('Order placed successfully')
@@ -98,12 +110,15 @@ const Purchase = () => {
                             <p>{product?.data?.description}</p>
                         </div>
 
-                        <div className="order-box">
+                        <div className="order-box ">
                             <Form onSubmit={handlePurchase}>
                                 {/* =========== Product Hidden fields ================= */}
                                 <Form.Group >
-                                    <Form.Control type="hidden" defaultValue={user?.displayName} />
-                                    <Form.Control type="hidden" defaultValue={user?.email} />
+                                <Form.Label>Your Name</Form.Label>
+                                    <Form.Control type="text" defaultValue={user?.displayName} readOnly  />
+                                    <div className="p-2"></div>
+                                    <Form.Label>Your Email </Form.Label>
+                                    <Form.Control type="text" defaultValue={user?.email} readOnly  />
                                 </Form.Group>
 
 
@@ -115,7 +130,7 @@ const Purchase = () => {
                                 {/* =========== Phone Numeber ================= */}
                                 <Form.Group className="mb-5" controlId="formGroupEmail">
                                     <Form.Label>Your Phone Number</Form.Label>
-                                    <Form.Control type='number' name='phone' placeholder='Your phone..'  required/>
+                                    <Form.Control type='number' name='phone' placeholder='Your phone..' required />
                                 </Form.Group>
 
                                 {/* ============= QTY ============== */}

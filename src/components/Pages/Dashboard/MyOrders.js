@@ -1,7 +1,6 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
 import { useQuery } from 'react-query';
-import fetchApi from '../../../interceptor';
 import Loading from '../../Templates/Loading';
 import DashboardTitle from './DashboardTitle';
 import { useAuthState } from 'react-firebase-hooks/auth';
@@ -9,13 +8,18 @@ import auth from '../../../firebase.init';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import swal from 'sweetalert';
+import axios from 'axios';
 
 const MyOrders = () => {
 
 
     const [user, loading] = useAuthState(auth);
 
-    const { data: orders, isLoading, refetch } = useQuery(['orders', user], async () => await fetchApi.get(`/order?email=${user?.email}`));
+    const { data: orders, isLoading, refetch } = useQuery(['orders', user], async () => await axios.get(`https://wwtools.herokuapp.com/order?email=${user?.email}`, {
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        }
+    }));
 
     if (loading || isLoading) {
         return <Loading />
@@ -42,7 +46,11 @@ const MyOrders = () => {
 
 
     const handleCancelOrder = async (order) => {
-        const { data } = await fetchApi.delete(`/order/${order._id}`);
+        const { data } = await axios.delete(`https://wwtools.herokuapp.com/order/${order._id}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            }
+        });
         if (data.deletedCount) {
             toast.success("Order Cancelled successfully..!");
             refetch();

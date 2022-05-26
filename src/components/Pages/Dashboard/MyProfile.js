@@ -1,10 +1,10 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Col, Form, Row } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
-import fetchApi from '../../../interceptor';
 import Loading from '../../Templates/Loading';
 import DashboardTitle from './DashboardTitle';
 
@@ -13,7 +13,12 @@ const MyProfile = () => {
     const [editMode, setEditmode] = useState(false);
     console.log(editMode);
 
-    const { data: profile, isLoading, refetch } = useQuery(['profile', user], async () => await fetchApi.get(`/user/${user?.email}`));
+    const { data: profile, isLoading, refetch } = useQuery(['profile', user], async () => await axios.get(`https://wwtools.herokuapp.com/user/${user?.email}`, {
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        }
+    }
+    ));
 
     if (loading || isLoading) {
         return <Loading />
@@ -28,7 +33,11 @@ const MyProfile = () => {
             linkdin: event.target.linkdin.value,
         }
 
-        const { data } = await fetchApi.put(`/user/update/${user.email}`, userProfile);
+        const { data } = await axios.put(`https://wwtools.herokuapp.com/user/update/${user.email}`, userProfile, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            }
+        });
         if (data.acknowledged) {
 
             toast.success('profile updated successfully')
@@ -101,7 +110,7 @@ const MyProfile = () => {
                                 Update Profile
                             </Button>
                             :
-                           <></>
+                            <></>
 
                     }
 

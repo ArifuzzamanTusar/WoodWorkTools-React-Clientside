@@ -1,9 +1,9 @@
+import axios from 'axios';
 import React from 'react';
 import { Col, Form, Row } from 'react-bootstrap';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
-import fetchApi from '../../../interceptor';
 import Loading from '../../Templates/Loading';
 
 const MyReviews = () => {
@@ -17,7 +17,11 @@ const MyReviews = () => {
             rating: event.target.rating.value,
             description: event.target.review.value
         }
-        const { data } = await fetchApi.post('/review', review);
+        const { data } = await axios.post('https://wwtools.herokuapp.com/review', review, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            }
+        });
 
         if (data?.insertedId) {
             console.log(data);
@@ -39,7 +43,7 @@ const MyReviews = () => {
                             <Form.Group>
                                 <Form.Label>Your Rating</Form.Label>
                                 <Form.Select name='rating'>
-                                    <option defaultValue={5.0} selected>5.0</option>
+                                    <option defaultValue={5.0}>5.0</option>
                                     <option defaultValue={4.5}>4.5</option>
                                     <option defaultValue={4.0}>4.0</option>
                                     <option defaultValue={3.5}>3.5</option>

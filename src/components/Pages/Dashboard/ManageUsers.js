@@ -2,18 +2,23 @@ import React from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 import swal from 'sweetalert';
-import fetchApi from '../../../interceptor';
 import Loading from '../../Templates/Loading';
 import DashboardTitle from './DashboardTitle';
 
 import { BsTrash, BsPersonCheckFill } from "react-icons/bs";
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 const ManageUsers = () => {
 
 
 
-    const { data: users, isLoading, refetch } = useQuery('users', async () => await fetchApi.get('/user'));
+    const { data: users, isLoading, refetch } = useQuery('users', async () => await axios.get('https://wwtools.herokuapp.com/user', {
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        }
+    }
+    ));
 
 
     // Confirm delete User
@@ -37,7 +42,7 @@ const ManageUsers = () => {
     const handleUserToAdminConfirm = async (makeAdmin) => {
         await swal({
             title: "Make me sure!",
-            text: `You are going to delete " ${makeAdmin.name} "`,
+            text: `You are going to make Admin to " ${makeAdmin.name} "`,
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -53,7 +58,12 @@ const ManageUsers = () => {
 
     // Delete Products 
     const handleUsertDelete = async (deleteUser) => {
-        const { data } = await fetchApi.delete(`/user/${deleteUser.email}`);
+        const { data } = await axios.delete(`https://wwtools.herokuapp.com/user/${deleteUser.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            }
+        }
+        );
         if (data.deletedCount) {
             toast.success("User Removed successfully..!");
             refetch();
@@ -62,7 +72,12 @@ const ManageUsers = () => {
     }
     // Make Admin
     const handleMakeAdmin = async (makeAdmin) => {
-        const { data } = await fetchApi.put(`/user/admin/${makeAdmin.email}`);
+        const { data } = await axios.put(`https://wwtools.herokuapp.com/user/admin/${makeAdmin.email}`,{}, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            }
+        }
+        );
 
         if (data.result?.acknowledged) {
             toast.success("Made Admin successfully..!");

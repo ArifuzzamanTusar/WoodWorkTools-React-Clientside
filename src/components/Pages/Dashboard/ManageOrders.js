@@ -1,9 +1,9 @@
 
+import axios from 'axios';
 import { Table } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
 import swal from 'sweetalert';
-import fetchApi from '../../../interceptor';
 import Loading from '../../Templates/Loading';
 import DashboardTitle from './DashboardTitle';
 
@@ -11,8 +11,12 @@ const ManageOrders = () => {
 
 
 
-    const { data: orders, isLoading, refetch } = useQuery('orders', async () => await fetchApi.get('/order'));
-    
+    const { data: orders, isLoading, refetch } = useQuery('orders', async () => await axios.get('https://wwtools.herokuapp.com/order', {
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        }
+    }));
+
 
 
 
@@ -49,6 +53,7 @@ const ManageOrders = () => {
             dangerMode: true,
         }).then((willConfirm) => {
             if (willConfirm) {
+                console.log(confirmOrder);
                 handleConfirm(confirmOrder._id);
             } else {
                 swal("Action Cancelled, Chill!");
@@ -66,7 +71,13 @@ const ManageOrders = () => {
 
 
     const handleCancelOrder = async (orderCancel) => {
-        const { data } = await fetchApi.delete(`/order/${orderCancel._id}`);
+        console.log(orderCancel._id);
+        const { data } = await axios.delete(`https://wwtools.herokuapp.com/order/${orderCancel._id}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            }
+        }
+        );
         if (data.deletedCount) {
             toast.success("Order Cancel successfully..!");
             refetch();
@@ -75,11 +86,17 @@ const ManageOrders = () => {
 
 
     const handleConfirm = async (id) => {
+        console.log(id);
         const accept = {
             status: 'paid'
         }
 
-        const { data } = await fetchApi.put(`/order/accept/${id}`, accept);
+        const { data } = await axios.put(`https://wwtools.herokuapp.com/order/accept/${id}`, accept, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            }
+        }
+        );
         if (data.acknowledged) {
             toast.success("Order Payment Accepted")
             refetch()
@@ -131,11 +148,11 @@ const ManageOrders = () => {
                                 <th className='text-center text-bold'>
                                     {
                                         order.status === 'due' && <>
-                                            <label onClick={() => handleCancelConfirm(order)}  className="btn btn-danger text-white">cancel</label>
+                                            <label onClick={() => handleCancelConfirm(order)} className="btn btn-danger text-white">cancel</label>
                                         </>
                                     }
                                     {
-                                        order.status === 'pending' && <label onClick={() => handleConfirmConfirm(order._id)} className="btn btn-success  text-white">accept payment</label>
+                                        order.status === 'pending' && <label onClick={() => handleConfirmConfirm(order)} className="btn btn-success  text-white">accept payment</label>
                                     }
                                     {
                                         order.status === 'paid' && "Shipped"

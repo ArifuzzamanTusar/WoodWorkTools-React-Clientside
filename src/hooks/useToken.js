@@ -1,6 +1,6 @@
 
+import axios from "axios";
 import { useEffect, useState } from "react";
-import fetchApi from "../interceptor";
 
 
 const useToken = (user) => {
@@ -11,7 +11,7 @@ const useToken = (user) => {
             let name = user?.user?.displayName;
             const loggedUser = { email: email, name: name }
             if (email) {
-                const { data } = await fetchApi.put(`/user/${email}`, loggedUser);
+                const { data } = await axios.put(`https://wwtools.herokuapp.com/user/${email}`, loggedUser);
                 setToken(data.token);
                 localStorage.setItem('accessToken', data.token);
             }

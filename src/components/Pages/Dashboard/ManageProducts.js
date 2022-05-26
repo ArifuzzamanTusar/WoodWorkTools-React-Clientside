@@ -1,19 +1,23 @@
 import React, { useState } from 'react';
 import { Button, Form, Table } from 'react-bootstrap';
 import { useQuery } from 'react-query';
-import fetchApi from '../../../interceptor';
 import Loading from '../../Templates/Loading';
 import DashboardTitle from './DashboardTitle';
 import { BsTrash } from "react-icons/bs";
 import swal from 'sweetalert';
 import { toast } from 'react-toastify';
+import axios from 'axios';
 
 
 
 const ManageProducts = () => {
 
 
-    const { data: products, isLoading, refetch } = useQuery('products', async () => await fetchApi.get('/product'));
+    const { data: products, isLoading, refetch } = useQuery('products', async () => await axios.get('https://wwtools.herokuapp.com/product', {
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+        }
+    }));
 
 
 
@@ -39,7 +43,13 @@ const ManageProducts = () => {
     const handleProductDelete = async (deleteProduct) => {
         console.log(deleteProduct._id);
 
-        const { data } = await fetchApi.delete(`/product/${deleteProduct._id}`);
+        const { data } = await axios.delete(`https://wwtools.herokuapp.com/product/${deleteProduct._id}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            }
+        }
+
+        );
         if (data.deletedCount) {
             toast.success('product deleted successfully ');
             refetch();

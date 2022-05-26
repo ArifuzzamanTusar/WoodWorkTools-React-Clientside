@@ -3,7 +3,6 @@ import React from 'react';
 import { Button, Container, Form, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import fetchApi from '../../../interceptor';
 import DashboardTitle from './DashboardTitle';
 
 const AddProduct = () => {
@@ -28,7 +27,11 @@ const AddProduct = () => {
                 image: imageUrl
             }
 
-            const { data: response } = await fetchApi.post('/product', product);
+            const { data: response } = await axios.post('https://wwtools.herokuapp.com/product', product, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+                }
+            });
             if (response.insertedId) {
                 toast.success('product uploaded successfully')
             } else {
@@ -120,7 +123,7 @@ const AddProduct = () => {
                                     )}
                                     type="number"
                                     placeholder="Order quantity"
-                                    min={50} />
+                                    min={2} />
                                 {/* validation  */}
                                 <label className="label">
                                     {errors.minimumOrder?.type === 'required' && <span className="label-text-alt text-red-500">{errors.minimumOrder.message}</span>}
@@ -143,7 +146,7 @@ const AddProduct = () => {
                                     )}
                                     type="number"
                                     placeholder="Product quantity"
-                                    min={1000} />
+                                    min={100} />
                                 {/* validation  */}
                                 <label className="label">
                                     {errors.minimumOrder?.type === 'required' && <span className="label-text-alt text-red-500">{errors.minimumOrder.message}</span>}

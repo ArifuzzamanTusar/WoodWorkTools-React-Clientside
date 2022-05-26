@@ -1,14 +1,14 @@
+import axios from 'axios';
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import { useQuery } from 'react-query';
-import fetchApi from '../../../interceptor';
 import PageHeader from '../../Global/Pagecomponents/PageHeader';
 import Loading from '../../Templates/Loading';
 import Productloop from '../../Templates/Productloop';
 
 const Products = () => {
     // const { data: products, isLoading } = useQuery('available', async () => await fetchApi.get('/product?limit=3'));
-    const { data: products, isLoading } = useQuery('available', async () => await fetchApi.get('/product'));
+    const { data: products, isLoading } = useQuery('available', async () => await axios.get('https://wwtools.herokuapp.com/product'));
 
     if (isLoading) {
         return <Loading />

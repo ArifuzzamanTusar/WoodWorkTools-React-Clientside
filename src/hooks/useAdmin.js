@@ -1,6 +1,6 @@
 
+import axios from "axios";
 import { useEffect, useState } from "react";
-import fetchApi from "../interceptor";
 
 const useAdmin = (user) => {
     const [role, setRole] = useState('user');
@@ -9,7 +9,7 @@ const useAdmin = (user) => {
         const getAdmin = async () => {
             let email = user?.email;
             if (email) {
-                const { data } = await fetchApi.get(`/user/${email}`);
+                const { data } = await axios.get(`https://wwtools.herokuapp.com/user/${email}`);
                 if (data.role) {
                     setRole(data.role);
                     setIsLoading(false);

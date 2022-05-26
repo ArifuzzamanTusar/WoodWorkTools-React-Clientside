@@ -1,7 +1,6 @@
 import React from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { useQuery } from 'react-query';
-import fetchApi from '../../../interceptor';
 import Loading from '../../Templates/Loading';
 import ReviewLoop from '../../Templates/ReviewLoop';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,11 +9,12 @@ import "swiper/css/pagination";
 import { Pagination } from 'swiper';
 import "./Testimonial.css"
 import SectionHeading from '../../Global/Pagecomponents/SectionHeading';
+import axios from 'axios';
 
 
 
 const Reviews = () => {
-    const { data: reviews, isLoading, refetch } = useQuery('reviews', async () => await fetchApi.get('/review'))
+    const { data: reviews, isLoading  } = useQuery('reviews', async () => await axios.get('https://wwtools.herokuapp.com/review'))
 
     if (isLoading) {
         return <Loading />
