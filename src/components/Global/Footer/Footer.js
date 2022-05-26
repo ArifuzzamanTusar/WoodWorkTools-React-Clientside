@@ -10,20 +10,13 @@ const Footer = () => {
             <Container  >
                 <footer className="py-5">
                     <div className="row">
-                        <div className="col-6 col-md-2 mb-3">
-                            <h5>Section</h5>
-                            <ul className="nav flex-column">
-                                <Customlink to={'/'}>Home</Customlink>
-                                <Customlink to={'/'}>Features</Customlink>
-                                <Customlink to={'/'}>Pricing</Customlink>
-                                <Customlink to={'/'}>FAQs</Customlink>
-                                <Customlink to={'/'}>About</Customlink>
-
-                            </ul>
+                        <div className="col-6 col-md-3 mb-3">
+                            <h5>About Us</h5>
+                            <p>Leading Wood Work Tools in your region who provides premium quality of products</p>
                         </div>
 
                         <div className="col-6 col-md-2 mb-3">
-                            <h5>Section</h5>
+                            <h5>QuickLinks</h5>
                             <ul className="nav flex-column">
                                 <Customlink to={'/'}>Home</Customlink>
                                 <Customlink to={'/'}>Features</Customlink>
@@ -34,7 +27,7 @@ const Footer = () => {
                         </div>
 
                         <div className="col-6 col-md-2 mb-3">
-                            <h5>Section</h5>
+                            <h5>SiteMap</h5>
                             <ul className="nav flex-column">
                                 <Customlink to={'/'}>Home</Customlink>
                                 <Customlink to={'/'}>Features</Customlink>
@@ -44,7 +37,7 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                        <div className="col-md-5 offset-md-1 mb-3">
+                        <div className="col-md-3 offset-md-1 mb-3">
                             <form>
                                 <h5>Subscribe to our newsletter</h5>
                                 <p>Monthly digest of what's new and exciting from us.</p>
@@ -60,9 +53,9 @@ const Footer = () => {
                     <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
                         <p>&copy; 2022 Company, Inc. All rights reserved.</p>
                         <ul className="list-unstyled d-flex">
-                            <li className="ms-3"><a className="nav-link" href="/facew">facebook</a></li>
-                            <li className="ms-3"><a className="nav-link" href="/facew">facebook</a></li>
-                            <li className="ms-3"><a className="nav-link" href="/facew">facebook</a></li>
+                            <li className="ms-3"><a className="nav-link" href="/face">facebook</a></li>
+                            <li className="ms-3"><a className="nav-link" href="/face">Twitter</a></li>
+                            <li className="ms-3"><a className="nav-link" href="/face">Linkedin</a></li>
                         </ul>
                     </div>
                 </footer>

@@ -1,24 +1,48 @@
-.dashboard-skeleton{
-    display: grid;
-    grid-template-columns: 300px auto;
-
+.dashboard-skeleton {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 300px auto;
 }
 
-.sidebar{
-    background: rgb(248, 248, 248);
-    box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.295);
-    min-height: 60vh;
+.sidebar {
+  background: rgb(248, 248, 248);
+  box-shadow: 5px 0px 20px rgba(0, 0, 0, 0.295);
+  min-height: 60vh;
 }
 
-                
 .avater-box .avater-image {
-    margin-top: 30px;
-    border-radius: 100px;
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.308);
+  margin-top: 30px;
+  border-radius: 100px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.308);
 }
 
-.form-control:disabled{
-    background: transparent;
-    border: none;
+.form-control:disabled {
+  background: transparent;
+  border: none;
+}
 
+.sidebar .nav-link {
+  margin: 15px 0px;
+  color: var(--primary);
+}
+
+.sidebar .nav-link.active {
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+}
+
+/* Phones to tablets 767px and below */
+@media screen and (max-width: 767px) {
+  /* write code here */
+  .dashboard-skeleton {
+    grid-template-columns: 1fr;
+  }
+  .table-parent{
+      width: 380px;
+      overflow-x: auto;
+  }
+  .dashboard-skeleton .page-content{
+      padding: 20px !important;
+  }
 }

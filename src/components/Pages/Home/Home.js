@@ -7,16 +7,15 @@ import Reviews from './Reviews';
 import Summary from './Summary';
 
 const Home = () => {
-   
+
     return (
         <div>
             <Hero></Hero>
-             <Products></Products>
-
-             <Reviews></Reviews>
-             <Summary></Summary>
-             <Aboutus></Aboutus>
-             <Contact></Contact>
+            <Products></Products>
+            <Summary></Summary>
+            <Reviews></Reviews>
+            <Aboutus></Aboutus>
+            <Contact></Contact>
         </div>
     );
 };

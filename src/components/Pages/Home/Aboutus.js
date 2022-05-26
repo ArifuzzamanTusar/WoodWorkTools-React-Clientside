@@ -8,14 +8,16 @@ const Aboutus = () => {
             <Container>
                 <Row>
                     <Col md={6} className="py-5 d-flex align-items-center">
-                        
-                            <div className="about-inner section-title">
-                                <h2 className="heading-title-text"> About Wood Work Tools Shop </h2>
-                                <div className="divider my-3"> </div>
-                                <p className="subtitle"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem saepe ullam aspernatur voluptates reiciendis culpa sapiente consequatur, quaerat magni dolore numquam nisi, fugiat eius. Voluptatibus, repellendus. Aliquam maxime perspiciatis iure. Nihil debitis ex esse harum voluptas ut. Quasi, beatae sapiente necessitatibus numquam eveniet ratione amet explicabo nihil non error magnam.</p>
-                                <Link className='btn btn-outlined' to='/about'> Learn More </Link>
 
-                            </div>
+                        <div className="about-inner section-title">
+                            <h2 className="heading-title-text"> About Wood Work Tools Shop </h2>
+                            <div className="divider my-3"> </div>
+                            <p className="subtitle"> Wood Work Tools company provides lots of modern tools that need for every woodworkers. We provides premium quality of tools and instruments over the world that counts about lot of smiles. 
+
+                            </p>
+                            <Link className='btn btn-outlined' to='/about'> Learn More </Link>
+
+                        </div>
 
 
                     </Col>

@@ -5,7 +5,7 @@ import './Productloop.css';
 
 const Productloop = ({ product }) => {
     const navigate = useNavigate();
-    const { _id, name, image, price, description, quantity } = product;
+    const { _id, name, image, price, description, quantity, minimumOrder } = product;
 
     return (
         <Col md={3}>
@@ -18,6 +18,7 @@ const Productloop = ({ product }) => {
                         <p className="price ">Price: <strong>{price}</strong></p>
                         <p className="stock"> Stock: <strong>{quantity}</strong></p>
                     </div>
+                    <p className="stock"> Minimum Order: <strong>{minimumOrder}</strong></p>
                     <div className="single-ploop-disc">
                         <p className="single-ploop-disc">{description.slice(0, 50)}...</p>
 

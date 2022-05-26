@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Container, Table } from 'react-bootstrap';
 import { useQuery } from 'react-query';
 import Loading from '../../Templates/Loading';
 import DashboardTitle from './DashboardTitle';
@@ -59,16 +59,18 @@ const MyOrders = () => {
 
     return (
         <div>
-            <DashboardTitle title='Manage Users' subtitle='Delete or update users Role' ></DashboardTitle>
-            <div className="table-data">
+            <DashboardTitle title='My Orders' subtitle='All of my orders' ></DashboardTitle>
+
+            <div className="table-parent ">
+
+
+
                 <Table responsive bordered hover>
                     <thead >
                         <tr>
                             <th>Product image</th>
                             <th className='text-center'>Product Name</th>
-                            <th className='text-center'>Customer</th>
-                            <th className='text-center'>Address</th>
-                            <th className='text-center'>Phone</th>
+
                             <th className='text-center'>Quantity</th>
                             <th className='text-center'>Price</th>
                             <th className='text-center'>Payment Status</th>
@@ -87,9 +89,7 @@ const MyOrders = () => {
                                     </div>
                                 </td>
                                 <td className='text-center'>{order.productName}</td>
-                                <td className='text-center'>{order.name}</td>
-                                <td className='text-center'>{order.address}</td>
-                                <td className='text-center'>{order.phone}</td>
+
                                 <td className='text-center'>{order.quantity}</td>
                                 <td className='text-center'>${order.totalPrice}</td>
                                 <td className='text-center capitalize text-bold'>
@@ -125,6 +125,9 @@ const MyOrders = () => {
                     </tbody>
                 </Table>
             </div>
+
+
+
         </div>
     );
 };

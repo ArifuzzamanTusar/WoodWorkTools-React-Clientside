@@ -66,7 +66,7 @@ const ManageProducts = () => {
         <div>
             <DashboardTitle title='Manage Products' subtitle='Manage your products Here' ></DashboardTitle>
 
-            <div className="">
+            <div className="table-parent">
                 <Table responsive bordered hover>
 
                     <thead >

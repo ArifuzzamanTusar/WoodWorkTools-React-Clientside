@@ -5,7 +5,7 @@ import PageHeader from '../../Global/Pagecomponents/PageHeader';
 const Blog = () => {
     return (
         <div>
-            <PageHeader title="Blogs" subtitle="All wood work tools"></PageHeader>
+            <PageHeader title="Blogs" subtitle="Assignment Question and answers"></PageHeader>
             <Container>
                 <div className="py-5">
                     <div className="question-answer p-5 shadow-lg rounded my-5">
@@ -33,7 +33,7 @@ const Blog = () => {
                         </div>
                         <hr />
                         <div className="answer">
-                            <p>There are many ways to optimize react apps like memoizing react components to avoid re-render. Also, keeping component state local. Then, if the application renders if long list we can use the technique of windowing which renders a small subset of rows at a given time. We can also use lazy loading images to prevent the creation of unnecessary DOM nodes to boost performance. And, there is a way if you are using webpack 4 then in module set mode option to production which tells webpack to use built-in optimization.</p>
+                            <p>To add methods and properties in objects can be used Prototypal inheritance of JavaScript features. By this method, can inherit properties and methods from another object. So, mainly these features allow us to reuse the properties and methods. This feature does have some limitations like objects can not inherit from multiple prototypes. Prototypical relationships can only be made with objects.</p>
                         </div>
                     </div>
                     <div className="question-answer p-5 shadow-lg rounded my-5">
@@ -42,7 +42,7 @@ const Blog = () => {
                         </div>
                         <hr />
                         <div className="answer">
-                            <p>There are many ways to optimize react apps like memoizing react components to avoid re-render. Also, keeping component state local. Then, if the application renders if long list we can use the technique of windowing which renders a small subset of rows at a given time. We can also use lazy loading images to prevent the creation of unnecessary DOM nodes to boost performance. And, there is a way if you are using webpack 4 then in module set mode option to production which tells webpack to use built-in optimization.</p>
+                            <p>setProducts() will replace previous value in state. setProducts is asynchronous. React components get re-rendered whenever the state changed. But, if you want to merge the previous value and updated value you must use the callback syntax of state updating along with the correct use of spread syntax. So, we don't want to merge previous value in products that's why we don't use the spread operator.</p>
                         </div>
                     </div>
                     <div className="question-answer p-5 shadow-lg rounded my-5">
@@ -51,7 +51,7 @@ const Blog = () => {
                         </div>
                         <hr />
                         <div className="answer">
-                            <p>There are many ways to optimize react apps like memoizing react components to avoid re-render. Also, keeping component state local. Then, if the application renders if long list we can use the technique of windowing which renders a small subset of rows at a given time. We can also use lazy loading images to prevent the creation of unnecessary DOM nodes to boost performance. And, there is a way if you are using webpack 4 then in module set mode option to production which tells webpack to use built-in optimization.</p>
+                            <p>Let's make a function as searchProduct and pass product and search query(product name) as parameters. Let's take empty as an array as result. Now, loop on products and inside that if product.name.includes(searchQuery) then push the product on that empty array. Call the function where you need it and pass the parameters as well. That's how we can get the product by name.</p>
                         </div>
                     </div>
                     <div className="question-answer p-5 shadow-lg rounded my-5">
@@ -60,7 +60,7 @@ const Blog = () => {
                         </div>
                         <hr />
                         <div className="answer">
-                            <p>There are many ways to optimize react apps like memoizing react components to avoid re-render. Also, keeping component state local. Then, if the application renders if long list we can use the technique of windowing which renders a small subset of rows at a given time. We can also use lazy loading images to prevent the creation of unnecessary DOM nodes to boost performance. And, there is a way if you are using webpack 4 then in module set mode option to production which tells webpack to use built-in optimization.</p>
+                            <p>Unit test to ensure a unit or components of application meets its design and behaves intended. For a unit test, a unit could be an individual function, method, procedure, module, or object. Unit testing helps to fix bugs in the development cycle and save costs. Also, helps with code re-use. So, the unit test helps developers to understand the testing code base and enables them to make changes quickly.</p>
                         </div>
                     </div>
                 </div>

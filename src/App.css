@@ -1,6 +1,6 @@
 :root {
   --primary: #563232;
-  --secondary: #e7cfb4;
+  --secondary: #724e4e;
 }
 body {
   font-family: "Poppins", sans-serif;
@@ -16,6 +16,14 @@ body {
 .btn:hover {
   transform: scale(0.95);
 }
+
+.nav-item  .dropdown-item:hover{
+  background-color: var(--secondary);
+}
+.navbar-toggler{
+  color: white !important;
+}
+
 
 .btn-primary {
   background: var(--primary) ;

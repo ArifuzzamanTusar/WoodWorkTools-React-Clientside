@@ -17,7 +17,7 @@ const Header = () => {
         localStorage.removeItem('accessToken');
     }
     return (
-        <Navbar  collapseOnSelect expand="lg" className='primary-bg' sticky="top" >
+        <Navbar  collapseOnSelect expand="lg" className='primary-bg' sticky="top" variant='dark'>
             <Container className=''>
                 <Navbar.Brand >
                     <Customlink to={'/'}> <img src={logo} alt="" width={150} /></Customlink>
@@ -27,7 +27,7 @@ const Header = () => {
                     <Nav className="me-auto">
                         <Customlink to={'/'}>Home</Customlink>
                         <Customlink to={'/products'}>Products</Customlink>
-                        <Customlink to={'/about'}>About</Customlink>
+                        
                         <Customlink to={'/portfolio'}>My Portfolio</Customlink>
                         <Customlink to={'/blog'}>Blog</Customlink>
 

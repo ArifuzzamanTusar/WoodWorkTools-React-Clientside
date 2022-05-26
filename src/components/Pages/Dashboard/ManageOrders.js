@@ -108,61 +108,63 @@ const ManageOrders = () => {
         <div>
             <DashboardTitle title='Manage Orders' subtitle='Manage all orders Here' ></DashboardTitle>
             <div className="table-data">
-                <Table responsive bordered hover>
-                    <thead >
-                        <tr>
-                            <th>Product image</th>
-                            <th className='text-center'>Product Name</th>
-                            <th className='text-center'>Customer</th>
-                            <th className='text-center'>Address</th>
-                            <th className='text-center'>Phone</th>
-                            <th className='text-center'>Quantity</th>
-                            <th className='text-center'>Price</th>
-                            <th className='text-center'>Payment Status</th>
-                            <th className='text-center'>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            orders?.data?.map((order, index) => <tr key={index}>
-                                <td>
-                                    <div className="flex items-center space-x-3">
-                                        <div className="product-image">
-                                            <img width={50} src={order.image} alt="" />
+                <div className="table-parent ">
+                    <Table responsive bordered hover>
+                        <thead >
+                            <tr>
+                                <th>Product image</th>
+                                <th className='text-center'>Product Name</th>
+                                <th className='text-center'>Customer</th>
+                                <th className='text-center'>Address</th>
+                                <th className='text-center'>Phone</th>
+                                <th className='text-center'>Quantity</th>
+                                <th className='text-center'>Price</th>
+                                <th className='text-center'>Payment Status</th>
+                                <th className='text-center'>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                orders?.data?.map((order, index) => <tr key={index}>
+                                    <td>
+                                        <div className="flex items-center space-x-3">
+                                            <div className="product-image">
+                                                <img width={50} src={order.image} alt="" />
 
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td className='text-center'>{order.productName}</td>
-                                <td className='text-center'>{order.name}</td>
-                                <td className='text-center'>{order.address}</td>
-                                <td className='text-center'>{order.phone}</td>
-                                <td className='text-center'>{order.quantity}</td>
-                                <td className='text-center'>${order.totalPrice}</td>
-                                <td className='text-center'>
-                                    {
-                                        order.status === 'due' ? "unpaid" : order.status
-                                    }
+                                    </td>
+                                    <td className='text-center'>{order.productName}</td>
+                                    <td className='text-center'>{order.name}</td>
+                                    <td className='text-center'>{order.address}</td>
+                                    <td className='text-center'>{order.phone}</td>
+                                    <td className='text-center'>{order.quantity}</td>
+                                    <td className='text-center'>${order.totalPrice}</td>
+                                    <td className='text-center'>
+                                        {
+                                            order.status === 'due' ? "unpaid" : order.status
+                                        }
 
-                                </td>
-                                <th className='text-center text-bold'>
-                                    {
-                                        order.status === 'due' && <>
-                                            <label onClick={() => handleCancelConfirm(order)} className="btn btn-danger text-white">cancel</label>
-                                        </>
-                                    }
-                                    {
-                                        order.status === 'pending' && <label onClick={() => handleConfirmConfirm(order)} className="btn btn-success  text-white">accept payment</label>
-                                    }
-                                    {
-                                        order.status === 'paid' && "Shipped"
-                                    }
-                                </th>
-                            </tr>)
-                        }
+                                    </td>
+                                    <th className='text-center text-bold'>
+                                        {
+                                            order.status === 'due' && <>
+                                                <label onClick={() => handleCancelConfirm(order)} className="btn btn-danger text-white">cancel</label>
+                                            </>
+                                        }
+                                        {
+                                            order.status === 'pending' && <label onClick={() => handleConfirmConfirm(order)} className="btn btn-success  text-white">accept payment</label>
+                                        }
+                                        {
+                                            order.status === 'paid' && "Shipped"
+                                        }
+                                    </th>
+                                </tr>)
+                            }
 
-                    </tbody>
-                </Table>
+                        </tbody>
+                    </Table>
+                </div>
             </div>
         </div>
     );

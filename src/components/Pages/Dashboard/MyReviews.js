@@ -24,8 +24,8 @@ const MyReviews = () => {
         });
 
         if (data?.insertedId) {
-            console.log(data);
             toast.success('Review submitted successfully.');
+            event.target.reset();
         }
     }
 
