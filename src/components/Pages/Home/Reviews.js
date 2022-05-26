@@ -21,22 +21,25 @@ const Reviews = () => {
     }
     return (
         <div>
-              <SectionHeading title='Testimonials' subtitle='what out clients say about out products and services'></SectionHeading>
+            <SectionHeading title='Testimonials' subtitle='what out clients say about out products and services'></SectionHeading>
             <Container>
-                <Swiper
-                    slidesPerView={"auto"}
-                    spaceBetween={30}
+                <div className="pb-5">
+                    <Swiper
+                        slidesPerView={"auto"}
+                        spaceBetween={30}
 
-                    pagination={{
-                        clickable: true,
-                    }}
-                    modules={[Pagination]}
-                    className="mySwiper"
-                >
-                    {
-                        reviews.data?.map((review, index) => <SwiperSlide  key={index} >  <ReviewLoop review={review}/>  </SwiperSlide>)
-                    }
-                </Swiper>
+                        pagination={{
+                            clickable: true,
+                        }}
+                        modules={[Pagination]}
+                        className="mySwiper"
+                    >
+                        {
+                            reviews.data?.map((review, index) => <SwiperSlide key={index} >  <ReviewLoop review={review} />  </SwiperSlide>)
+                        }
+                    </Swiper>
+                </div>
+
             </Container>
 
 

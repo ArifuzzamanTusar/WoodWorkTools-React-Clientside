@@ -5,7 +5,7 @@ const fetchApi = axios.create({
     // baseURL: 'http://localhost:5000',
     baseURL: 'https://ww-tools.herokuapp.com',
     headers: {
-        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        authorization: `Bearer ${localStorage.getItem('accessToken')}`,
     }
 });
 

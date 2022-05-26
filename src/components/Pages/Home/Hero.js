@@ -27,7 +27,7 @@ const Hero = () => {
             _id: 1,
             title: "Wood Work Tools's Miter Saw",
             subtitle: "15 Amp 10 in. Sliding Compound Exclusive Miter Saw comes with 10 Inches Blade Length, 36.19 x 22.82 x 16.92	Item Dimensions, Ac/dc Speed	4600 RPM  Power Source",
-            button: "button-text",
+            button: "See Details",
             button_url: "/products",
             image: miterSaw
 
@@ -36,7 +36,7 @@ const Hero = () => {
             _id: 2,
             title: "Powerful Circular Saw",
             subtitle: "Get the official Festool TS 75 EQ Plunge Cut Circular Saw with 75-Inch Track with 50 nummbers of sharp Teeths",
-            button: "button-text",
+            button: "See Details",
             button_url: "/products",
             image: circulerSaw
 
@@ -45,7 +45,7 @@ const Hero = () => {
             _id: 3,
             title: "Professional Table Saw",
             subtitle: "SAWSTOP 10-Inch Professional Cabinet Saw 3-HP, 36-Inch Professional TGlide Fence System (PCS31230-TGP236)",
-            button: "button-text",
+            button: "See Details",
             button_url: "/products",
             image: tableSaw
         }

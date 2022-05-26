@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Image } from 'react-bootstrap';
+import {  Image } from 'react-bootstrap';
 import './ReviewLoop.css';
 
 const ReviewLoop = ({ review }) => {

@@ -74,7 +74,7 @@ const AddProduct = () => {
                                 },
                             }
                             )}
-                            type="text"
+                            as="textarea"
                             placeholder="Product Description" />
 
                         {/* validation  */}

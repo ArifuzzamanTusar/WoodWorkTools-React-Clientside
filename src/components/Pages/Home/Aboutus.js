@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 
 const Aboutus = () => {
     return (
-        <div className='bg-white my-5 py-5'>
+        <div className='bg-light py-5'>
             <Container>
                 <Row>
-                    <Col md={6} className="d-flex align-items-center">
+                    <Col md={6} className="py-5 d-flex align-items-center">
                         
                             <div className="about-inner section-title">
                                 <h2 className="heading-title-text"> About Wood Work Tools Shop </h2>
@@ -20,8 +20,8 @@ const Aboutus = () => {
 
                     </Col>
                     <Col md={6}>
-                        <div className="image">
-                            <img className='img-fluid rounded shadow-lg' src="https://res.cloudinary.com/tusar/image/upload/v1653530688/wood-work-tools/503cfaedd6a7ec3a488e691fc4835258_m3rq7j.webp" alt="" srcset="" />
+                        <div className=" py-5 image">
+                            <img className='img-fluid rounded shadow-lg' src="https://res.cloudinary.com/tusar/image/upload/v1653530688/wood-work-tools/503cfaedd6a7ec3a488e691fc4835258_m3rq7j.webp" alt="" />
                         </div>
                     </Col>
                 </Row>

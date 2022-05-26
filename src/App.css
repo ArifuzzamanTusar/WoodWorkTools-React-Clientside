@@ -18,9 +18,15 @@ body {
 }
 
 .btn-primary {
-  background: var(--primary);
+  background: var(--primary) ;
   border-radius: 5px;
   border: none;
+}
+
+.primary-text{
+  color: var(--primary) ;
+  font-weight: 600;
+
 }
 .btn-primary:hover {
   background: rgb(77, 77, 77);
@@ -82,6 +88,7 @@ body {
   .heading-title-text{
     font-size: 25px;
   }
+
 }
 
 /* Phones 480px and below */

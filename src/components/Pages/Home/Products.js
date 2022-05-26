@@ -7,7 +7,7 @@ import Loading from '../../Templates/Loading';
 import Productloop from '../../Templates/Productloop';
 
 const Products = () => {
-    const { data: products, isLoading } = useQuery('available', async () => await fetchApi.get('/product?limit=3'));
+    const { data: products, isLoading } = useQuery('available', async () => await fetchApi.get('/product?limit=4'));
 
     if (isLoading) {
         return <Loading />

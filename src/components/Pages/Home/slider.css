@@ -39,3 +39,12 @@
   color: #fff;
   background: #007aff;
 }
+
+@media screen and (max-width: 767px) {
+  /* write code here */
+ 
+  .slider-content{
+    min-height: 20vh;
+  
+  }
+}
